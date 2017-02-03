@@ -49,7 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201702031356496_InitialDB.cs" />
+    <Compile Include="Migrations\201702031356496_InitialDB.Designer.cs">
+      <DependentUpon>201702031356496_InitialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="TeduShopDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,10 +75,15 @@
       <Project>{328c7c72-4a86-4879-a13b-b304ba80d72a}</Project>
       <Name>TeduShop.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeduShop.Model\TeduShop.Model.csproj">
+      <Project>{342aa305-0bf4-45eb-82c9-9021f5c55d2d}</Project>
+      <Name>TeduShop.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
-    <Folder Include="Repositories\" />
+    <EmbeddedResource Include="Migrations\201702031356496_InitialDB.resx">
+      <DependentUpon>201702031356496_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
